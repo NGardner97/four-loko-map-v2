@@ -12,7 +12,7 @@ ui <- fluidPage(
 # Server
 server <- function(input, output) {
   output$map <- renderLeaflet({
-    leaflet(df_geo) %>%
+    leaflet(df) %>%
       addTiles() %>%
       addMarkers(
         lng = ~longitude,
