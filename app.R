@@ -1,6 +1,7 @@
 library(shiny)
 library(readr)
 library(tidyverse)
+library(leaflet)
 
 df <- read_csv("https://raw.githubusercontent.com/NGardner97/four-loko-map-v2/refs/heads/main/four-loko-sightings.csv")
 
