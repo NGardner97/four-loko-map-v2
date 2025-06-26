@@ -19,7 +19,9 @@ jobs:
 
     - name: Install dependencies
       run: |
-        Rscript -e 'install.packages(c("tidygeocoder", "readr", "dplyr", "httr", "jsonlite"))'
+        Rscript -e 'install.packages("remotes")'
+        Rscript -e 'install.packages(c("dplyr", "readr", "jsonlite", "httr"))'
+        Rscript -e 'remotes::install_github("jessecambon/tidygeocoder")'
 
     - name: Run geocode script
       run: Rscript geocoder.R
