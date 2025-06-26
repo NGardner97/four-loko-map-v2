@@ -3,8 +3,6 @@ library(readr)
 library(tidyverse)
 library(leaflet)
 
-df <- read_csv("https://raw.githubusercontent.com/NGardner97/four-loko-map-v2/main/four-loko-sightings.csv")
-
 ui <- fluidPage(
   titlePanel("Four Loko UK Shop Map"),
   leafletOutput("map", height = 600)
@@ -12,6 +10,9 @@ ui <- fluidPage(
 
 # Server
 server <- function(input, output) {
+  
+  df <- read_csv("https://raw.githubusercontent.com/NGardner97/four-loko-map-v2/main/four-loko-sightings.csv")
+  
   output$map <- renderLeaflet({
     leaflet(df) %>%
       addTiles() %>%
@@ -21,6 +22,9 @@ server <- function(input, output) {
         popup = ~paste0("<b>", name, "</b><br>", full_address, "<br>", description)
       ) %>%
       addProviderTiles("CartoDB.Positron")
+  })
+  output$timestamp <- renderText({
+    paste("Data last loaded at", Sys.time())
   })
 }
 
