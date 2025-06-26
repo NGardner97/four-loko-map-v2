@@ -1,18 +1,8 @@
 library(shiny)
-library(leaflet)
-library(tidygeocoder)
 library(readr)
-library(readxl)
 library(tidyverse)
 
 df <- read_csv("https://raw.githubusercontent.com/NGardner97/four-loko-map-v2/refs/heads/main/four-loko-sightings.csv")
-
-df <- df %>%
-  mutate(full_address = paste(address, area, postcode, "UK", sep = ", "))
-
-df_geo <- df %>%
-  geocode(address = full_address, method = "osm", lat = latitude, long = longitude)
-
 
 ui <- fluidPage(
   titlePanel("Four Loko UK Shop Map"),
