@@ -5,7 +5,7 @@ library(readr)
 library(readxl)
 library(tidyverse)
 
-df <- readxl::read_excel("four-loko-sightings.xlsx")
+df <- read_csv("https://raw.githubusercontent.com/NGardner97/four-loko-map-v2/refs/heads/main/four-loko-sightings.csv")
 
 df <- df %>%
   mutate(full_address = paste(address, area, postcode, "UK", sep = ", "))
@@ -28,7 +28,8 @@ server <- function(input, output) {
         lng = ~longitude,
         lat = ~latitude,
         popup = ~paste0("<b>", name, "</b><br>", full_address, "<br>", description)
-      )
+      ) %>%
+      addProviderTiles("CartoDB.Positron")
   })
 }
 
