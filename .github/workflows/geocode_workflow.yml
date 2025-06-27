@@ -27,7 +27,7 @@ jobs:
             libproj-dev \
             libudunits2-dev
 
-      - name: Install renv (needed before detecting cache path)
+      - name: Install renv
         run: Rscript -e 'install.packages("renv")'
 
       - id: get-path
@@ -36,7 +36,7 @@ jobs:
           Rscript -e 'cat(renv::paths$library(), file = "renv-lib-path.txt")'
           echo "cache-path=$(cat renv-lib-path.txt)" >> "$GITHUB_OUTPUT"
 
-      - name: Cache R packages
+      - name: Restore cache (if any)
         uses: actions/cache@v3
         with:
           path: ${{ steps.get-path.outputs.cache-path }}
@@ -44,9 +44,14 @@ jobs:
           restore-keys: ${{ runner.os }}-renv-
 
       - name: Restore packages with renv
-        run: |
-          Rscript -e 'install.packages("renv")'
-          Rscript -e 'renv::restore()'
+        run: Rscript -e 'renv::restore()'
+
+      - name: Save cache after restore
+        if: always()
+        uses: actions/cache/save@v3
+        with:
+          path: ${{ steps.get-path.outputs.cache-path }}
+          key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
 
       - name: Run geocode script
         run: Rscript geocoder.R
