@@ -43,3 +43,11 @@ jobs:
         run: Rscript geocoder.R
 
       - name: Commit and push geocoded CSV if changed
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add four-loko-sightings.csv
+          git diff --cached --quiet || git commit -m "Auto update geocoded CSV [skip ci]"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
