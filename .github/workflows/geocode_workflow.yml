@@ -3,8 +3,8 @@ name: Fast geocode with renv
 on:
   push:
     paths:
-      - 'data/raw_data.csv'
-      - 'scripts/geocode_script.R'
+      - 'four-loko-sightings-raw.csv'
+      - 'geocoder.R'
       - 'renv.lock'
 
 jobs:
@@ -31,13 +31,13 @@ jobs:
         Rscript -e 'renv::restore()'
 
     - name: Run geocode script
-      run: Rscript scripts/geocode_script.R
+      run: Rscript geocoder.R
 
     - name: Commit and push geocoded CSV if changed
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
-        git add data/geocoded_data.csv
+        git add four-loko-sightings.csv
         git diff --cached --quiet || git commit -m "Auto update geocoded CSV [skip ci]"
         git push
       env:
