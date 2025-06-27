@@ -36,22 +36,26 @@ jobs:
           Rscript -e 'cat(renv::paths$library(), file = "renv-lib-path.txt")'
           echo "cache-path=$(cat renv-lib-path.txt)" >> "$GITHUB_OUTPUT"
 
-      - name: Restore cache (if any)
+      - name: Restore renv cache (if exists)
         uses: actions/cache@v3
         with:
           path: ${{ steps.get-path.outputs.cache-path }}
           key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
           restore-keys: ${{ runner.os }}-renv-
 
-      - name: Restore packages with renv
+      - name: Restore R packages with renv
         run: Rscript -e 'renv::restore()'
 
-      - name: Save cache after restore
-        if: always()
-        uses: actions/cache/save@v3
+      - name: Ensure renv library path exists
+        run: |
+          mkdir -p "${{ steps.get-path.outputs.cache-path }}"
+
+      - name: Save renv cache
+        uses: actions/cache@v3
         with:
           path: ${{ steps.get-path.outputs.cache-path }}
           key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
+          restore-keys: ${{ runner.os }}-renv-
 
       - name: Run geocode script
         run: Rscript geocoder.R
