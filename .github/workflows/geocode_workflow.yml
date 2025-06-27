@@ -27,6 +27,9 @@ jobs:
             libproj-dev \
             libudunits2-dev
 
+      - name: Install renv (needed before detecting cache path)
+        run: Rscript -e 'install.packages("renv")'
+
       - id: get-path
         name: Get renv library path
         run: |
