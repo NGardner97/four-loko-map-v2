@@ -27,10 +27,16 @@ jobs:
             libproj-dev \
             libudunits2-dev
 
-      - name: Restore renv cache
+      - id: get-path
+        name: Get renv library path
+        run: |
+          Rscript -e 'cat(renv::paths$library(), file = "renv-lib-path.txt")'
+          echo "cache-path=$(cat renv-lib-path.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache R packages
         uses: actions/cache@v3
         with:
-          path: renv/library/R-4.3/x86_64-pc-linux-gnu
+          path: ${{ steps.get-path.outputs.cache-path }}
           key: ${{ runner.os }}-renv-${{ hashFiles('renv.lock') }}
           restore-keys: ${{ runner.os }}-renv-
 
