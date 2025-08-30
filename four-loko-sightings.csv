@@ -1,9 +1,10 @@
-name,address,area,postcode,description,full_address,latitude,longitude
-Tesco Express,1-3 High Rd,London,N22 6BH,White,"1-3 High Rd, London, N22 6BH, UK",51.590682,-0.103922
-Tesco Superstore,Church Langley Way,Harlow,CM17 9TE,"White, Pink melon","Church Langley Way, Harlow, CM17 9TE, UK",51.7656323,0.1316312
-Nisa Local,7 Potter St,Harlow,CM17 9AD,Tropical,"7 Potter St, Harlow, CM17 9AD, UK",51.7562409,0.1335898
-Morrisons,1 London Road,Grays,RM17 5XZ,"Tropical, dark berry burst","1 London Road, Grays, RM17 5XZ, UK",51.4778988,0.3183556
-Premier,103-104 High St,Colchester,CO1 1TH,"Tropical, white, blue","103-104 High St, Colchester, CO1 1TH, UK",51.8897717,0.9024102
-Morrisons Daily,52 North Rd,Clacton-on-Sea,CO15 4DD,"Tropical, blue","52 North Rd, Clacton-on-Sea, CO15 4DD, UK",51.8059009,1.1553434
-Morrisons,Centenary Way,Clacton-on-Sea,CO16 9SB,Tropical,"Centenary Way, Clacton-on-Sea, CO16 9SB, UK",51.8192960,1.1493303
-Morrisons Petrol Station,Centenary Way,Clacton-on-Sea,"CO16 9SB""",Tropical,"Centenary Way, Clacton-on-Sea, CO16 9SB"", UK",51.8190682,1.1514281
+name,address,area,postcode,description,full_address,latitude,longitude,latitude...7,longitude...8,latitude...9,longitude...10
+Tesco Express,1-3 High Rd,London,N22 6BH,White,"1-3 High Rd, London, N22 6BH, UK",51.590682,-0.103922,NA,NA,NA,NA
+Tesco Superstore,Church Langley Way,Harlow,CM17 9TE,"White, Pink melon","Church Langley Way, Harlow, CM17 9TE, UK",51.7656323,0.1316312,NA,NA,NA,NA
+Nisa Local,7 Potter St,Harlow,CM17 9AD,Tropical,"7 Potter St, Harlow, CM17 9AD, UK",51.7562409,0.1335898,NA,NA,NA,NA
+Morrisons,1 London Road,Grays,RM17 5XZ,"Tropical, dark berry burst","1 London Road, Grays, RM17 5XZ, UK",51.4778988,0.3183556,NA,NA,NA,NA
+Premier,103-104 High St,Colchester,CO1 1TH,"Tropical, white, blue","103-104 High St, Colchester, CO1 1TH, UK",51.8897717,0.9024102,NA,NA,NA,NA
+Morrisons Daily,52 North Rd,Clacton-on-Sea,CO15 4DD,"Tropical, blue","52 North Rd, Clacton-on-Sea, CO15 4DD, UK",51.8059009,1.1553434,NA,NA,NA,NA
+Morrisons,Centenary Way,Clacton-on-Sea,CO16 9SB,Tropical,"Centenary Way, Clacton-on-Sea, CO16 9SB, UK",51.819296,1.1493303,NA,NA,NA,NA
+Morrisons Petrol Station,Centenary Way,Clacton-on-Sea,"CO16 9SB""",Tropical,"Centenary Way, Clacton-on-Sea, CO16 9SB"", UK",51.8190682,1.1514281,NA,NA,NA,NA
+Morrisons,10 Hertslet Rd,London,N7 6PL,"Tropical, dark berry","10 Hertslet Rd, London, N7 6PL,
