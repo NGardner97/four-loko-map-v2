@@ -3,7 +3,7 @@ name: Fast geocode with renv
 on:
   push:
     paths:
-      - 'four-loko-sightings-raw.csv'
+      - 'four-loko-sightings.csv'
       - 'geocoder.R'
       - 'renv.lock'
 
